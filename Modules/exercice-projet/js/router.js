@@ -1,30 +1,35 @@
-import { about } from "./about.js";
-import { home } from "./home.js";
-import { notFound } from "./not-found.js";
-import { productDetails } from "./product-details.js";
-import { products } from "./products.js";
-import { search } from "./search.js";
+// import { about } from "./about.js";
+// import { home } from "./home.js";
+// import { notFound } from "./not-found.js";
+// import { productDetails } from "./product-details.js";
+// import { products } from "./products.js";
+// import { search } from "./search.js";
 
 const routes = [
   {
     hash: '#/',
-    render: home,
+    loadPage: () => import('./home.js').then(({ home }) => home),
+    // render: home,
   },
   {
     hash: '#/about',
-    render: about,
+    loadPage: () => import('./about.js').then(({ about }) => about),
+    // render: about,
   },
   {
     hash: '#/search',
-    render: search,
+    loadPage: () => import('./search.js').then(({ search }) => search),
+    // render: search,
   },
   {
     hash: '#/products',
-    render: products,
+    loadPage: () => import('./products.js').then(({ products }) => products),
+    // render: products,
   },
   {
     hash: '#/product-details',
-    render: productDetails,
+    loadPage: () => import('./product-details.js').then(({ productDetails }) => productDetails),
+    // render: productDetails,
   },
 ];
 
@@ -34,10 +39,15 @@ function matchRoute() {
   const match = routes.find((route) => route.hash === location.hash);
 
   if (!match) {
-    return notFound(mainEl);
+    import('./not-found.js').then(({ notFound }) => {
+      notFound(mainEl)
+    });
+    return;
   }
 
-  match.render(mainEl);
+  match.loadPage().then((page) => {
+    page(mainEl);
+  });
 
   const links = document.querySelectorAll('header a');
 
