@@ -1,3 +1,10 @@
+import { about } from "./about.js";
+import { home } from "./home.js";
+import { notFound } from "./not-found.js";
+import { productDetails } from "./product-details.js";
+import { products } from "./products.js";
+import { search } from "./search.js";
+
 const routes = [
   {
     hash: '#/',
