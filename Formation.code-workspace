@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "Exercice-Build"
+		},
+		{
+			"path": "Async"
 		}
 	]
 }
