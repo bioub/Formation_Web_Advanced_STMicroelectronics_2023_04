@@ -1,4 +1,4 @@
-import { filters } from "./search.js";
+import { filters } from './search.js';
 
 export let selectedProduct = null;
 const selectedProductLocalStorage = localStorage.getItem('selectedProduct');
@@ -40,7 +40,7 @@ export function products(mainEl) {
 
     if (target.className === 'show-link') {
       selectedProduct = productsList.find(
-        (p) => p._id === target.dataset.productId,
+        (p) => p._id === target.dataset.productId
       );
       localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
     }
@@ -49,7 +49,7 @@ export function products(mainEl) {
 
 function fetchProducts() {
   return fetch(
-    'https://6a59157b-430d-4969-b802-b9c12470dafb-bluemix.cloudantnosqldb.appdomain.cloud/phones/_all_docs?include_docs=true',
+    'https://6a59157b-430d-4969-b802-b9c12470dafb-bluemix.cloudantnosqldb.appdomain.cloud/phones/_all_docs?include_docs=true'
   ).then((res) => res.json());
 }
 
@@ -85,7 +85,7 @@ function applyFilters(products) {
 
   if (filters.name) {
     results = results.filter((p) =>
-      p.name.toLowerCase().includes(filters.name.toLowerCase()),
+      p.name.toLowerCase().includes(filters.name.toLowerCase())
     );
   }
 
@@ -93,13 +93,13 @@ function applyFilters(products) {
     results = results.filter(
       (p) =>
         (p.hardware.fmRadio && filters.fmRadio === 'yes') ||
-        (!p.hardware.fmRadio && filters.fmRadio === 'no'),
+        (!p.hardware.fmRadio && filters.fmRadio === 'no')
     );
   }
 
   if (filters.availability.length) {
     results = results.filter((p) =>
-      p.availability.some((el) => filters.availability.includes(el)),
+      p.availability.some((el) => filters.availability.includes(el))
     );
   }
 

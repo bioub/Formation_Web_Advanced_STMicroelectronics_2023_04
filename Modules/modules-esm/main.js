@@ -1,4 +1,4 @@
-import { createInputValue, createSpanValue, createTodo } from "./todos.js";
+import { createInputValue, createSpanValue, createTodo } from './todos.js';
 
 /** @type {HTMLFormElement} */
 const formEl = document.querySelector('.todos-form');
@@ -61,7 +61,7 @@ divEl.addEventListener('dblclick', (event) => {
   const target = event.target;
 
   if (target.classList.contains('todos-span-value')) {
-    const inputEl = createInputValue(target.innerText)
+    const inputEl = createInputValue(target.innerText);
     target.replaceWith(inputEl);
     // inputEl.select();
   }
@@ -71,12 +71,13 @@ divEl.addEventListener('keydown', (event) => {
   /** @type {HTMLElement} */
   const target = event.target;
 
-  if (target.classList.contains('todos-input-value') && event.code === 'Enter') {
+  if (
+    target.classList.contains('todos-input-value') &&
+    event.code === 'Enter'
+  ) {
     target.replaceWith(createSpanValue(target.value));
   }
 });
-
-
 
 // Exercice 6
 // Utiliser l'API fetch pour récupérer les données

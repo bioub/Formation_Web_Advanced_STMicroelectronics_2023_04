@@ -34,7 +34,7 @@ export function createTodo(todo) {
   // inputEl.type = 'text';
 
   const buttonEl = document.createElement('button');
-  buttonEl.className = 'todos-delete-btn'
+  buttonEl.className = 'todos-delete-btn';
   buttonEl.innerText = '-';
 
   rowEl.append(checkboxEl, ' ', spanEl, ' ', buttonEl);

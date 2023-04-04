@@ -1,0 +1,7 @@
+{
+  "name": "modules-esm",
+  "version": "1.0.0",
+  "scripts": {
+    "format": "prettier --write \"*.js\""
+  }
+}

@@ -28,7 +28,10 @@ const routes = [
   },
   {
     hash: '#/product-details',
-    loadPage: () => import('./product-details.js').then(({ productDetails }) => productDetails),
+    loadPage: () =>
+      import('./product-details.js').then(
+        ({ productDetails }) => productDetails
+      ),
     // render: productDetails,
   },
 ];
@@ -40,7 +43,7 @@ function matchRoute() {
 
   if (!match) {
     import('./not-found.js').then(({ notFound }) => {
-      notFound(mainEl)
+      notFound(mainEl);
     });
     return;
   }

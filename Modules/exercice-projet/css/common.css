@@ -32,14 +32,14 @@ main {
 }
 
 a {
-  color: #03234B;
+  color: #03234b;
 }
 
 .btn-link {
   display: block;
   border-radius: 5px;
   margin-bottom: 10px;
-  background-color: #03234B;
+  background-color: #03234b;
   text-align: center;
   text-decoration: none;
   cursor: pointer;

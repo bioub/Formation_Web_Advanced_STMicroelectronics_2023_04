@@ -1,8 +1,9 @@
 {
-  "dependencies": {
-    "chalk": "^4.0.0",
-    "date-fns": "^2.29.3"
-  },
+  "private": true,
+  "workspaces": [
+    "exercice-projet",
+    "modules-esm"
+  ],
   "devDependencies": {
     "prettier": "^2.8.7"
   }

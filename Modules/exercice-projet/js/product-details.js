@@ -1,11 +1,11 @@
-import { selectedProduct } from "./products.js";
+import { selectedProduct } from './products.js';
 
 /** @param {HTMLElement} mainEl */
 export function productDetails(mainEl) {
-  if (!selectedProduct && localStorage.getItem("selectedProduct")) {
-    selectedProduct = JSON.parse(localStorage.getItem("selectedProduct"));
+  if (!selectedProduct && localStorage.getItem('selectedProduct')) {
+    selectedProduct = JSON.parse(localStorage.getItem('selectedProduct'));
   } else if (!selectedProduct) {
-    location.hash = "/products";
+    location.hash = '/products';
     return;
   }
 
@@ -18,20 +18,20 @@ export function productDetails(mainEl) {
 <ul class="phone-thumbs">
   ${selectedProduct.images
     .map((i) => `<li><img class="phone-thumb" src="${i}" /></li>`)
-    .join("")}
+    .join('')}
 </ul>
   `;
 
   mainEl.innerHTML = template;
 
-  const phoneThumbsEl = mainEl.querySelector(".phone-thumbs");
-  const phoneEl = mainEl.querySelector(".phone");
+  const phoneThumbsEl = mainEl.querySelector('.phone-thumbs');
+  const phoneEl = mainEl.querySelector('.phone');
 
-  phoneThumbsEl.addEventListener("click", (event) => {
+  phoneThumbsEl.addEventListener('click', (event) => {
     /** @type {HTMLElement} */
     const target = event.target;
 
-    if (target.className === "phone-thumb") {
+    if (target.className === 'phone-thumb') {
       phoneEl.src = target.src;
     }
   });
