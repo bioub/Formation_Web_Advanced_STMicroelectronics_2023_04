@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
 
 // async / await, nouveauté de ES2017
-async function copy() {
+(async function () {
   try {
     const buffer = await fs.readFile('.prettierrc');
     await fs.writeFile('.prettierrc.copy', buffer);
@@ -9,7 +9,5 @@ async function copy() {
   } catch (err) {
     console.log('Erreur : ' + err.message);
   }
-}
-
-copy();
+})();
 console.log('Fin du fichier');
