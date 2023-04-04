@@ -45,8 +45,8 @@ function matchRoute() {
     return;
   }
 
-  match.loadPage().then((page) => {
-    page(mainEl);
+  match.loadPage().then((render) => {
+    render(mainEl);
   });
 
   const links = document.querySelectorAll('header a');
