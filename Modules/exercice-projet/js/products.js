@@ -8,7 +8,7 @@ if (selectedProductLocalStorage) {
 }
 
 /** @param {HTMLElement} mainEl */
-export function products(mainEl) {
+export async function products(mainEl) {
   let productsList = [];
   const template = `
 <table>
@@ -25,14 +25,14 @@ export function products(mainEl) {
 
   const tableEl = mainEl.querySelector('table');
 
-  fetchProducts().then((data) => {
-    productsList = data.rows.map((r) => r.doc);
+  const data = await fetchProducts();
 
-    for (const product of applyFilters(productsList)) {
-      const trEl = createProductRow(product);
-      tableEl.appendChild(trEl);
-    }
-  });
+  productsList = data.rows.map((r) => r.doc);
+
+  for (const product of applyFilters(productsList)) {
+    const trEl = createProductRow(product);
+    tableEl.appendChild(trEl);
+  }
 
   tableEl.addEventListener('click', (event) => {
     /** @type {HTMLElement} */
@@ -47,10 +47,11 @@ export function products(mainEl) {
   });
 }
 
-function fetchProducts() {
-  return fetch(
+async function fetchProducts() {
+  const res = await fetch(
     'https://6a59157b-430d-4969-b802-b9c12470dafb-bluemix.cloudantnosqldb.appdomain.cloud/phones/_all_docs?include_docs=true'
-  ).then((res) => res.json());
+  );
+  return await res.json();
 }
 
 function createProductRow(product) {

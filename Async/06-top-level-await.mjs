@@ -1,6 +1,7 @@
 const { readFile, writeFile } = await import('fs/promises');
 
-// Top Level : nouveauté ECMAScript 2022
+// Top Level await : nouveauté ECMAScript 2022
+// ne fonctionne qu'avec les modules ESM
 try {
   const buffer = await readFile('.prettierrc');
   await writeFile('.prettierrc.copy', buffer);
