@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "Async"
+		},
+		{
+			"path": "TypeScript"
 		}
 	]
 }
