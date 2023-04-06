@@ -52,3 +52,24 @@ Promise.all([
 // Promise.any
 // similaire a Promise.race mais on récupère le premier retour
 // qui n'est pas une erreur
+
+
+// Promise.resolve();
+// Promise.reject();
+
+class FileService {
+  getEditorconfigContent() {
+    return fs.readFile('.editorconfig', { encoding: 'utf-8'});
+  }
+}
+
+class FakeFileService {
+  getEditorconfigContent() {
+    return Promise.resolve('Fake data');
+    // return new Promise((resolve) => {
+    //   resolve('Fake data');
+    // });
+
+    // return Promise.reject(new Error('Fake error'));
+  }
+}
