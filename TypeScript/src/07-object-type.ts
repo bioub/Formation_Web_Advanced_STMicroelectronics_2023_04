@@ -1,4 +1,4 @@
-function withCoords1(coords: { x: number, y: number }) {
+function withCoords1(coords: { x: number; y: number }) {
   return coords.x + coords.y;
   // seuls x et y sont accessible en lecture/écriture
 }
@@ -7,9 +7,9 @@ function withCoords1(coords: { x: number, y: number }) {
 withCoords1({ x: 1, y: 2 });
 // withCoords1({ x: 1, y: 2, z: 3 }); // erreur
 
-
-
-function withCoordsZOpt(coords: { x: number, y: number, z?: number } = { x: 1, y: 2, z: 3 }) {
+function withCoordsZOpt(
+  coords: { x: number; readonly y: number; z?: number } = { x: 1, y: 2, z: 3 }
+) {
   return coords.x + coords.y;
   // seuls x et y sont accessible en lecture/écriture
 }
@@ -19,8 +19,8 @@ withCoordsZOpt(); // active la valeur par défault { x: 1, y: 2, z: 3 }
 withCoordsZOpt({ x: 1, y: 2 });
 withCoordsZOpt({ x: 1, y: 2, z: 3 }); // erreur
 
-// comme any à éviter (type dynamique)
-function withCoordsExtensible(coords: { x: number, [key: string]: number }) {
+// comme any à éviter (type dynamique et pas type safe)
+function withCoordsExtensible(coords: { x: number; [key: string]: number }) {
   // seuls x et y sont accessible en lecture/écriture
 }
 

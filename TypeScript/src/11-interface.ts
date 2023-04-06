@@ -53,3 +53,17 @@ function setTimeoutSync(cb: SetTimeoutCallback, delayMs: number) {
 
   cb();
 }
+
+
+
+
+// Attention les types alias et les interfaces
+// n'existent pas en JavaScript
+// donc à la compilation ts -> js, elles disparaissent
+
+function withLogger2(logger: unknown) {
+  // erreur Cannot find name 'ILogger' (n'existe pas en JS)
+  // if (logger instanceof ILogger) {
+  //   logger.log('abc');
+  // }
+}

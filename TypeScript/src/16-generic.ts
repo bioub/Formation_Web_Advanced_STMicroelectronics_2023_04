@@ -41,3 +41,8 @@ returnPromise().then((val) => {
 async function doNothing(): Promise<void> {
 
 }
+
+
+linksEls[0].addEventListener('click', (event) => {
+  const href = (event.currentTarget as HTMLAnchorElement).href;
+});
