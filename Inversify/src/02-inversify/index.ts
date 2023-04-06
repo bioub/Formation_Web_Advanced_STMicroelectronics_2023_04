@@ -4,7 +4,7 @@ import { Logger } from "./Logger";
 import { container } from "./container";
 
 // const logger = container.get<Logger>('logger');
-const logger1 = container.get(Logger);
+const logger1 = container.get(Logger); 
 const logger2 = container.get(Logger);
 
 logger1.log('Message depuis l\'app en dev');
