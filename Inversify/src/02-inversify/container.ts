@@ -31,4 +31,4 @@ if (process.env.NODE_ENV === 'production') {
 //   return new Logger(writer);
 // });
 
-container.bind(Logger).toSelf().inSingletonScope();;
+container.bind(Logger).toSelf().inSingletonScope();

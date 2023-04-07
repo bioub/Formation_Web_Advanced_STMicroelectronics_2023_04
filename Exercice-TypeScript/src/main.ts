@@ -1,4 +1,4 @@
-import { createInputValue, createSpanValue, createTodo } from './todos.js';
+import { Todo, createInputValue, createSpanValue, createTodo } from './todos.js';
 
 const formEl = document.querySelector('.todos-form') as HTMLFormElement;
 const inputEl = document.querySelector('.todos-new-input') as HTMLInputElement;
