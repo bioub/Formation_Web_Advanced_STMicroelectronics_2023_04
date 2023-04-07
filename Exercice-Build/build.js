@@ -1,7 +1,11 @@
-const fs = require('fs/promises');
-const path = require('path');
+const fs = require('node:fs/promises');
+const path = require('node:path');
+const { Buffer } = require('node:buffer');
 const md5 = require('md5');
 const { minify } = require('terser');
+const minimist = require('minimist');
+
+const argv = minimist(process.argv.slice(2));
 
 const distPath = path.resolve(__dirname, 'dist');
 const srcPath = path.resolve(__dirname, 'src');
@@ -22,9 +26,16 @@ async function buildJs() {
     fs.readFile(indexJsPath),
   ]);
 
-  for (const buffer of buffers) {
-    await fs.appendFile(appJsDistPath, buffer);
+  if (argv.minify) {
+    const { code } = await minify(Buffer.concat(buffers).toString('utf-8'));
+    await fs.writeFile(appJsDistPath, code);
+  } else {
+    await fs.writeFile(appJsDistPath, Buffer.concat(buffers));
   }
+
+  // for (const buffer of buffers) {
+  //   await fs.appendFile(appJsDistPath, buffer);
+  // }
 }
 
 async function buildHtml() {
