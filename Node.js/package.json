@@ -1,11 +1,17 @@
 {
   "type": "module",
   "devDependencies": {
+    "@types/express": "^4.17.17",
     "@types/node": "^16.18.23",
+    "nodemon": "^2.0.22",
     "typescript": "^5.0.3"
   },
   "scripts": {
     "build": "tsc",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "start:dev": "nodemon dist/express.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }
