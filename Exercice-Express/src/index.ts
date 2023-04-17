@@ -1,5 +1,6 @@
 import { createServer } from 'http';
 import { app } from './app';
+import mongoose from 'mongoose';
 
 let port = 4000;
 
@@ -14,8 +15,10 @@ server.on('error', (err) => {
 });
 
 function startServer() {
-  server.listen(port, () => {
+  server.listen(port, async () => {
     console.log(`Server started on http://localhost:${port}`);
+    await mongoose.connect('mongodb://127.0.0.1:27017/test');
+    console.log(`Mongoose connection pool created`);
   });
 }
 

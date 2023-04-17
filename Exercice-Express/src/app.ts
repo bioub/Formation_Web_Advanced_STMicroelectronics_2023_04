@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import { todosRouter } from './todos/routes';
 import cors from 'cors';
 
@@ -21,4 +21,11 @@ app.use((req, res, next) => {
   res.status(404).json({
     msg: 'Not Found',
   })
+});
+
+// Middleware qui permet de customiser les erreurs 500 :
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  res.status(500).json({
+    msg: err.message,
+  });
 });
