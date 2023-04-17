@@ -1,22 +1,10 @@
 import express from 'express';
-
-const todos = [
-  {
-    id: 1,
-    title: 'Acheter du pain',
-    completed: false,
-  },
-  {
-    id: 2,
-    title: 'Introduire Express',
-    completed: true,
-  },
-];
+import { todosRouter } from './todos/routes'
 
 const app = express();
 
 // Ajouter vos routes ici :
-// ...
+app.use('/api/todos', todosRouter); // les routes préfixée par /api/todos
 
 app.listen(4000, () => {
   console.log('Server started on http://localhost:4000');
