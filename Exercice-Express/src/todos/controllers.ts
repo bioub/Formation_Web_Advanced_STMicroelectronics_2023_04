@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { TodoService } from "./model";
 
 export async function listCtrl(req: Request, res: Response) {
@@ -6,7 +6,7 @@ export async function listCtrl(req: Request, res: Response) {
   res.json(todos);
 }
 
-export async function showCtrl(req: Request, res: Response) {
+export async function showCtrl(req: Request, res: Response, next: NextFunction) {
   const todo = await TodoService.findById(req.params.todoId);
 
   if (!todo) {

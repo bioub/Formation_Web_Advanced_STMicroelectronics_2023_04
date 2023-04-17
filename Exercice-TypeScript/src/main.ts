@@ -61,7 +61,8 @@ if (newTodo) {
   inputEl.value = newTodo;
 }
 
-const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+// const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+const res = await fetch('http://localhost:4000/api/todos');
 const todos = await res.json();
 
 for (const todo of todos.slice(0, 20)) {

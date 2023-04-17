@@ -1,11 +1,22 @@
-import express from 'express';
-import { todosRouter } from './todos/routes'
+import { createServer } from 'http';
+import { app } from './app';
 
-const app = express();
+let port = 4000;
 
-// Ajouter vos routes ici :
-app.use('/api/todos', todosRouter); // les routes préfixée par /api/todos
+const server = createServer(app);
 
-app.listen(4000, () => {
-  console.log('Server started on http://localhost:4000');
+server.on('error', (err) => {
+  if ((err as any).code === 'EADDRINUSE') {
+    // si le port est occupé, on tente le port suivant
+    port++;
+    startServer()
+  }
 });
+
+function startServer() {
+  server.listen(port, () => {
+    console.log(`Server started on http://localhost:${port}`);
+  });
+}
+
+startServer();

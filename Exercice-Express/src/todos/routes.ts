@@ -13,6 +13,8 @@ todosRouter.get('', listCtrl);
 todosRouter.get('/:todoId', showCtrl);
 
 // POST /api/todos
+// express.json() est un middleware (plugin)
+// enregistre pour cette route
 todosRouter.post('', express.json(), createCtrl);
 
 // DELETE /api/todos/:todoId
