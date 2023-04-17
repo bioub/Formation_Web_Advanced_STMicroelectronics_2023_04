@@ -183,3 +183,55 @@ Retourne
   "completed": true
 }
 ```
+
+### Exercice MongoDB
+
+#### Exercice 1
+
+Ajouter une nouvelle collection `User` au serveur.
+
+Créer un nouveau dossier `users` sur le model de `todos` avec 3 fichiers `model.ts`, `controller.ts` et `routes.ts`.
+
+Un document User sera défini par les clés suivants :
+
+name de type string et obligatoire
+email de type string (optionnel), email doit contenir un @
+
+Pour gérer le @ obligatoire, il faudra créer un custom validator :
+https://mongoosejs.com/docs/validation.html#custom-validators
+
+Récreer les routes et controllers associés à :
+- GET /api/users
+- GET /apu/users/:userId
+- POST /api/users
+
+Pensez à enregister userRouter dans `app.ts`
+
+#### Exercice 2
+
+Retourner dans `todos/model.ts` et ajouter au schéma une clé
+`user` de type `ObjectId` :
+https://mongoosejs.com/docs/schematypes.html#objectids
+
+Modifier le code `showCtrl` dans `todos/controllers` de sorte à retourner un sous-objet user plutôt que sont id.
+
+Exemple :
+
+```
+{
+  "_id": "6b4353465343464554",
+  "title": "ABC",
+  "completed": true,
+  "user": {
+    "name": "Toto",
+    "email": "toto@toto.com"
+  }
+}
+```
+
+2 versions possibles :
+- soit faire 2 requêtes
+- soit utiliser la méthode populate de mongoose :
+https://mongoosejs.com/docs/populate.html
+
+
