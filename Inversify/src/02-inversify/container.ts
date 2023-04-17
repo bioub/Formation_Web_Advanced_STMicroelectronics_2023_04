@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // container.bind(Logger).toDynamicValue((context) => {
 //   const writer = context.container.get<WriterInterface>(WriterInterface);
-//   return new Logger(writer);
+//   return new Logger(writer, 'app.log');
 // });
 
 container.bind(Logger).toSelf().inSingletonScope();

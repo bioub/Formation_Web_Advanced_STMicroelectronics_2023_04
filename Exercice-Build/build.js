@@ -52,9 +52,13 @@ async function buildHtml() {
 }
 
 async function main() {
-  await rmAndMkdir(distPath);
-  await buildJs();
-  await buildHtml();
+  try {
+    await rmAndMkdir(distPath);
+    await buildJs();
+    await buildHtml();
+  } catch (err) {
+    console.log(err.message);
+  }
 }
 
 main();

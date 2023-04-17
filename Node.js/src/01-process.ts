@@ -21,6 +21,7 @@ console.log(process.cpuUsage());
 console.log(process.version);
 console.log(process.versions);
 console.log(process.platform);
+console.log(process.arch);
 
 console.log(process.cwd());
 // mettre ces 2 lignes en début dans le main de node
