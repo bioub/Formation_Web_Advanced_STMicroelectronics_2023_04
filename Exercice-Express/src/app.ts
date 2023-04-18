@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express';
 import { todosRouter } from './todos/routes';
 import cors from 'cors';
+import { usersRouter } from './users/routes';
 
 export const app = express();
 
@@ -15,6 +16,7 @@ app.use((req, res, next) => {
 // Ajouter vos routes ici :
 // dans ce cas app.use permet d'enregistrer plusieurs routes sous un préfixe
 app.use('/api/todos', todosRouter); // les routes préfixée par /api/todos
+app.use('/api/users', usersRouter);
 
 // Middleware qui permet de customiser les erreurs 404 :
 app.use((req, res, next) => {

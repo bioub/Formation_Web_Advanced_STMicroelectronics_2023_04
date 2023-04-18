@@ -1,9 +1,10 @@
-import mongoose from "mongoose";
+import mongoose, { Schema, Types } from "mongoose";
 
 export type Todo = {
   id: number;
   title: string;
   completed: boolean;
+  user: Types.ObjectId
 };
 
 // export type NewTodo = {
@@ -110,6 +111,10 @@ const schema = new mongoose.Schema<NewTodo>({
   completed: {
     type: Boolean,
     default: () => false,
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
   }
 });
 

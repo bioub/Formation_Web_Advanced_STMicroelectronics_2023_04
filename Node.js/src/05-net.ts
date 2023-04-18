@@ -3,6 +3,7 @@ import { createServer } from 'node:net';
 const server = createServer();
 
 server.on('connection', (socket) => {
+  socket.pipe(process.stdout);
   socket.write('HTTP/1.1 200 OK\r\n');
   socket.write('Content-type: application/json\r\n');
   socket.write('Content-length: 15\r\n');

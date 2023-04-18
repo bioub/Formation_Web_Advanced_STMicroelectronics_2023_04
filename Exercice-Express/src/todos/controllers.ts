@@ -12,7 +12,7 @@ export async function listCtrl(req: Request, res: Response, next: NextFunction) 
 
 export async function showCtrl(req: Request, res: Response, next: NextFunction) {
   try {
-    const todo = await TodoService.findById(req.params.todoId);
+    const todo = await TodoService.findById(req.params.todoId).populate('user', 'name email');
 
     if (!todo) {
       return next();
@@ -27,7 +27,7 @@ export async function showCtrl(req: Request, res: Response, next: NextFunction) 
 export async function createCtrl(req: Request, res: Response, next: NextFunction) {
   try {
     const todo = await TodoService.create(req.body);
-    res.json(todo);
+    res.status(201).json(todo);
   } catch (err) {
     next(err);
   }

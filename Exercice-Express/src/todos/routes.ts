@@ -1,8 +1,5 @@
-
-import express from 'express'
-import { Router } from "express";
-import { TodoService } from "./model";
-import { createCtrl, deleteCtrl, listCtrl, replaceCtrl, showCtrl, updateCtrl } from "./controllers";
+import express, { Router } from 'express';
+import { createCtrl, deleteCtrl, listCtrl, replaceCtrl, showCtrl, updateCtrl } from './controllers';
 
 export const todosRouter = Router();
 
@@ -25,4 +22,3 @@ todosRouter.patch('/:todoId', express.json(), updateCtrl);
 
 // PUT /api/todos/:todoId
 todosRouter.put('/:todoId', express.json(), replaceCtrl);
-
