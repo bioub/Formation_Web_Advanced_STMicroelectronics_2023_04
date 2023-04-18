@@ -1,6 +1,6 @@
 import { it } from 'mocha';
 import { expect } from 'chai';
-import hello from './hello.js';
+import hello from './hello';
 
 // it('should return Hello Romain', () => {
 //   const msg = hello('Romain');
