@@ -26,6 +26,9 @@
 		},
 		{
 			"path": "Exercice-Express"
+		},
+		{
+			"path": "Tests-Unitaires"
 		}
 	]
 }
