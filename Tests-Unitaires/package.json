@@ -16,5 +16,8 @@
     "build:ts": "tsc",
     "test": "mocha --require=ts-node/register \"src/**/*.spec.ts\"",
     "coverage": "nyc --reporter html --reporter text yarn test"
+  },
+  "dependencies": {
+    "@types/node": "16"
   }
 }
