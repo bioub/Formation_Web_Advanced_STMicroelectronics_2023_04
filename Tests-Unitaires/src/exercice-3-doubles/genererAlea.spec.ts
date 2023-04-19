@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { describe, it } from "mocha";
 import { genererAlea } from "./genererAlea";
-import sinon from "sinon";
+import sinon, { SinonMock } from "sinon";
 
 describe('genererAlea function (fake)', () => {
   const originalRandom = Math.random;
@@ -27,9 +27,10 @@ describe('genererAlea function (fake)', () => {
 })
 
 describe('genererAlea function (mock)', () => {
-  const mockMath = sinon.mock(Math)
+  let mockMath: SinonMock;
 
   beforeEach(() => {
+    mockMath = sinon.mock(Math)
     // globalThis.localStorage = {
     //   getItem(key: string) {
     //     return 'VALUE';
