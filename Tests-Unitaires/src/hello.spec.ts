@@ -10,10 +10,12 @@ import hello from './hello';
 //   }
 // });
 
+// Style TDD
 // it('should return Hello Romain', () => {
 //   assert.strictEqual(hello('Romain'), 'Hello Romain !');
 // });
 
+// Style BDD
 it('should return Hello Romain', () => {
   expect(hello('Romain')).to.equals('Hello Romain');
 });
