@@ -32,6 +32,9 @@
 		},
 		{
 			"path": "hello-react"
+		},
+		{
+			"path": "todos-react"
 		}
 	]
 }
