@@ -1,14 +1,14 @@
-import TodoForm from "./TodoForm";
-import TodosList from "./TodosList";
+import TodoForm from './TodoForm';
+import TodosList from './TodosList';
+import { Todo } from './model';
 
 function Todos() {
-
   const todoFormValue = 'ABC';
-  const todos = [
-    {id: 1, title: 'DEF', completed: false},
-    {id: 2, title: 'HIJ', completed: true},
-    {id: 3, title: 'KLM', completed: false},
-  ]
+  const todos: Todo[] = [
+    { id: 1, title: 'DEF', completed: false },
+    { id: 2, title: 'HIJ', completed: true },
+    { id: 3, title: 'KLM', completed: false },
+  ];
 
   // Exercice Props
   // Définir les types Props pour TodoForm

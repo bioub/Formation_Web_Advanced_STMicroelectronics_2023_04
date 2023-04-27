@@ -1,11 +1,16 @@
 import TodoItem from "./TodoItem";
+import { Todo } from "./model";
 
-function TodosList() {
+type Props = {
+  items: Todo[],
+}
+
+function TodosList({ items }: Props) {
   return (
     <div className="TodosList">
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
+      <TodoItem item={items[0]} />
+      <TodoItem item={items[1]} />
+      <TodoItem item={items[2]} />
     </div>
   );
 }

@@ -1,8 +1,14 @@
-function TodoItem() {
+import { Todo } from "./model";
+
+type Props = {
+  item: Todo;
+}
+
+function TodoItem({ item }: Props) {
   return (
-    <div className="TodoItem" data-todo-id="123">
-      <input type="checkbox" className="todos-completed" checked={false} />
-      <span className="todos-span-value">ABC</span>
+    <div className="TodoItem" data-todo-id={item.id}>
+      <input type="checkbox" className="todos-completed" checked={item.completed} />
+      <span className="todos-span-value">{item.title}</span>
       <button className="todos-delete-btn">-</button>
     </div>
   );
