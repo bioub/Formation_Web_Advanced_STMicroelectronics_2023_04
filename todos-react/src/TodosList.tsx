@@ -1,16 +1,17 @@
-import TodoItem from "./TodoItem";
-import { Todo } from "./model";
+import TodoItem from './TodoItem';
+import { Todo } from './model';
 
 type Props = {
-  items: Todo[],
-}
+  items: Todo[];
+  editingId: number | null;
+};
 
-function TodosList({ items }: Props) {
+function TodosList({ items, editingId }: Props) {
   return (
     <div className="TodosList">
-      <TodoItem item={items[0]} />
-      <TodoItem item={items[1]} />
-      <TodoItem item={items[2]} />
+      {items.map((item) => (
+        <TodoItem item={item} isEditing={editingId === item.id} />
+      ))}
     </div>
   );
 }

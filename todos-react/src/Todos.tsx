@@ -21,7 +21,7 @@ function Todos() {
   return (
     <div className="Todos">
       <TodoForm value={todoFormValue} />
-      <TodosList items={todos} />
+      <TodosList items={todos} editingId={editingId} />
     </div>
   );
 }
