@@ -43,10 +43,30 @@ type Props = {
 
 function Hello({ name = 'Romain', age = 0, isActive = false }: Props) {
   console.log('Hello');
+  // let activeLabel = '';
+
+  // if (isActive) {
+  //   activeLabel = ' -> active '
+  // }
+
+  // let activeLabel = isActive && ' -> active ';
+
+  const items = ['A', 'B', 'C'];
+  // const itemsEl = [];
+
+  // for (const item of items) {
+  //   itemsEl.push(<div>{item}</div>)
+  // }
+
+  const itemsEl = items.map((item) => <div>{item}</div>);
 
   return (
     <div className="Hello" id="hello-component">
-      Hello <span data-user-name={name}>{name}</span>
+      Hello <span data-user-name={name}>{name}</span>{" "}
+      {/* {isActive && <b>active</b>} */}
+      {isActive ? <b>active</b> : <b>not active</b>}
+      {/* {itemsEl} */}
+      {items.map((item, index) => <div key={item}>{item}</div>)}
     </div>
   );
 }
