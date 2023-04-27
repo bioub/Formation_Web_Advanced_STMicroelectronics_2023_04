@@ -35,12 +35,18 @@ import React from 'react';
 //   return divEl;
 // }
 
-function Hello() {
+type Props = {
+  name?: string;
+  age?: number;
+  isActive?: boolean;
+};
+
+function Hello({ name = 'Romain', age = 0, isActive = false }: Props) {
   console.log('Hello');
 
   return (
     <div className="Hello" id="hello-component">
-      Hello <span data-user-name="Romain">Romain</span>
+      Hello <span data-user-name={name}>{name}</span>
     </div>
   );
 }
