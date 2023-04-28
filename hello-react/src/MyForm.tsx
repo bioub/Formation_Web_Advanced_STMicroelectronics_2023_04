@@ -1,23 +1,34 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from 'react';
 
 function MyForm() {
-  const [username, setUsername] = useState('romain');
+  const [user, setUser] = useState({
+    username: 'romain',
+    isActive: true,
+    description: 'Blah blah blah',
+    gender: 'Male',
+  });
+
+  function handleChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+    const value = event.target.type === 'checkbox' ? (event.target as HTMLInputElement).checked : event.target.value;
+    setUser({ ...user, [event.target.name]: value });
+  }
 
   return (
     <form className="MyForm">
       <div>
-        Username : <input value={username} onChange={(event) => {setUsername(event.currentTarget.value)}} />
+        Username : <input name="username" value={user.username} onChange={handleChange} />
       </div>
       <div>
-        Active : <input type="checkbox" />
+        Active : <input name="isActive" checked={user.isActive} type="checkbox" onChange={handleChange} />
       </div>
       <div>
-        Description : <textarea></textarea>
+        Description : <textarea name="description" value={user.description} onChange={handleChange}></textarea>
       </div>
       <div>
-        Gender : <select>
-          <option>Male</option>
+        Gender :{' '}
+        <select name="gender" value={user.gender} onChange={handleChange}>
           <option>Female</option>
+          <option>Male</option>
         </select>
       </div>
     </form>

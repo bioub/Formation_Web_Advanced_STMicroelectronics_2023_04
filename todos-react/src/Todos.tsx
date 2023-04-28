@@ -1,15 +1,16 @@
+import { useState } from 'react';
 import TodoForm from './TodoForm';
 import TodosList from './TodosList';
 import { Todo } from './model';
 
 function Todos() {
-  const todoFormValue = 'ABC';
-  const todos: Todo[] = [
+  const [todoFormValue, setTodoFormValue] = useState('ABC');
+  const [todos, setTodos] = useState<Todo[]>([
     { id: 1, title: 'DEF', completed: false },
     { id: 2, title: 'HIJ', completed: true },
     { id: 3, title: 'KLM', completed: false },
-  ];
-  const editingId: number | null = 3;
+  ]);
+  const [editingId, setEditingId] = useState<number | null>(3);
 
   // Exercice Event et State
   // 1/ Les 3 variables si dessus doivent se définir dans le state
@@ -28,10 +29,25 @@ function Todos() {
   // de Todos
   // Bonus: au click du bouton moins, supprimer la todo...
 
+  function handleAdd() {
+    setTodos([
+      ...todos,
+      {
+        id: Math.random(),
+        title: todoFormValue,
+        completed: false,
+      },
+    ]);
+  }
+
+  function handleDelete(todo: Todo) {
+    setTodos(todos.filter((el) => el.id !== todo.id));
+  }
+
   return (
     <div className="Todos">
-      <TodoForm value={todoFormValue} />
-      <TodosList items={todos} editingId={editingId} />
+      <TodoForm value={todoFormValue} onTodoFormValueChange={setTodoFormValue} onAdd={handleAdd} />
+      <TodosList items={todos} editingId={editingId} onDelete={handleDelete} />
     </div>
   );
 }
