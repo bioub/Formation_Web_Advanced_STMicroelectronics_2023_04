@@ -3,6 +3,7 @@ import ClockWidget from './ClockWidget';
 import Counter from './Counter';
 import Hello from './Hello';
 import MyForm from './MyForm';
+import Exercices from './exercices/Exercices';
 
 function App() {
 
@@ -14,6 +15,8 @@ function App() {
       <Counter />
       <MyForm />
       <ClockWidget />
+      <h2>Exercices</h2>
+      <Exercices />
     </div>
   );
 }

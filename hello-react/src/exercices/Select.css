@@ -1,0 +1,18 @@
+.Select {
+  user-select: none;
+  cursor: pointer;
+}
+
+.Select_selected {
+  padding: 4px;
+  border: 1px solid gray;
+}
+
+.Select_menu {
+  margin-top: 3px;
+  border: 1px solid gray;
+}
+
+.Select_item {
+  padding: 4px;
+}
