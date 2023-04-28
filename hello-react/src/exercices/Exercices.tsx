@@ -8,14 +8,14 @@ function Exercices() {
   const [name, setName] = useState('Titi');
 
   function handleSelected(val: string) {
-
+    setName(val);
   }
 
   return (
     <div className="Exercices">
       <Helloworld />
-      {/* <MultiStateButton items={names} selected={name} onSelected={handleSelected} /> */}
-      {/* <Select items={names} selected={name} onSelected={handleSelected} /> */}
+      <MultiStateButton items={names} selected={name} onSelected={handleSelected} />
+      <Select items={names} selected={name} onSelected={handleSelected} />
     </div>
   );
 }

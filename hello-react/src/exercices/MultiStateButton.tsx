@@ -1,13 +1,22 @@
 import { Component } from 'react';
 
-class MultiStateButton extends Component {
+type Props = {
+  items: string[];
+  selected: string;
+  onSelected(val: string): void;
+};
+
+class MultiStateButton extends Component<Props> {
+
+  handleClick = () => {
+    const selectedIndex = this.props.items.indexOf(this.props.selected);
+    const nextIndex = (selectedIndex + 1) % this.props.items.length;
+    this.props.onSelected(this.props.items[nextIndex]);
+  }
+
   render() {
-    const {  } = this.props;
-    return (
-      <button className="ExMultiStateButton">
-       LA VALEUR DU TABLEAU ITEM A AFFICHER
-      </button>
-    );
+    const { selected } = this.props;
+    return <button className="ExMultiStateButton" onClick={this.handleClick}>{selected}</button>;
   }
 }
 

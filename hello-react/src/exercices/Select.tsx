@@ -1,20 +1,69 @@
 import './Select.css';
 
-import { Component } from 'react';
+import { Component, createRef } from 'react';
 
-class Select extends Component {
-  state = {};
+type Props = {
+  items: string[];
+  selected: string;
+  onSelected(val: string): void;
+};
+
+type State = {
+  open: boolean;
+};
+
+class Select extends Component<Props, State> {
+  state = {
+    open: false,
+  };
+
+  hostRef = createRef<HTMLDivElement>();
+
+  componentDidMount(): void {
+    // document.addEventListener('click', (event) => {
+    //   this.setState({
+    //     open: false
+    //   })
+    // }, { capture: true });
+    document.addEventListener('click', (event) => {
+      if (!this.hostRef.current?.contains(event.target as HTMLElement)) {
+        this.setState({
+          open: false,
+        });
+      }
+    });
+  }
+
+  handleSelectedClick = () => {
+    this.setState({
+      open: !this.state.open,
+    });
+  };
+
+  handleItemClick = (val: string) => {
+    this.setState({
+      open: false,
+    });
+    this.props.onSelected(val);
+  };
+
   render() {
-    const {} = this.state;
-    const {} = this.props;
+    const { open } = this.state;
+    const { items, selected } = this.props;
     return (
-      <div className="Select">
-        <div className="Select_selected">Selected item</div>
-        <div className="Select_menu">
-          <div className="Select_item">Item 1</div>
-          <div className="Select_item">Item 2</div>
-          <div className="Select_item">Item 3</div>
+      <div className="Select" ref={this.hostRef}>
+        <div className="Select_selected" onClick={this.handleSelectedClick}>
+          {selected}
         </div>
+        {open && (
+          <div className="Select_menu">
+            {items.map((it) => (
+              <div className="Select_item" key={it} onClick={() => this.handleItemClick(it)}>
+                {it}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     );
   }
