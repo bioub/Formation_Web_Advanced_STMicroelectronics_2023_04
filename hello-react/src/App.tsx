@@ -1,6 +1,7 @@
 import Clock from './Clock';
 import ClockWidget from './ClockWidget';
 import Counter from './Counter';
+import CounterWidget from './CounterWidget';
 import Hello from './Hello';
 import MyForm from './MyForm';
 import Exercices from './exercices/Exercices';
@@ -15,6 +16,7 @@ function App() {
       <Counter />
       <MyForm />
       <ClockWidget />
+      <CounterWidget />
       <h2>Exercices</h2>
       <Exercices />
     </div>
