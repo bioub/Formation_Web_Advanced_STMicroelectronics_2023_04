@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Hello />
       <Hello name="Romain" age={123} isActive /> {/* React.createElement(Hello, { name: 'Toto', age: 123, isActive: true }) */}
-      <Clock onNowUpdate={(now) => { /*console.log(now);*/ }} />
+      <Clock />
       <Counter />
       <MyForm />
     </div>
