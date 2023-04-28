@@ -1,4 +1,5 @@
 import Clock from './Clock';
+import ClockWidget from './ClockWidget';
 import Counter from './Counter';
 import Hello from './Hello';
 import MyForm from './MyForm';
@@ -12,6 +13,7 @@ function App() {
       <Clock />
       <Counter />
       <MyForm />
+      <ClockWidget />
     </div>
   );
 }
