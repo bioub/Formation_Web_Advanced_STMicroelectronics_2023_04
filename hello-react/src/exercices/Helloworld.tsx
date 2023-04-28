@@ -4,7 +4,7 @@ class Helloworld extends Component {
   state = {
 
   };
-  handleInput = (event: ChangeEvent<HTMLInputElement>) => {
+  handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 
   };
   render() {
@@ -12,7 +12,7 @@ class Helloworld extends Component {
     return (
       <div className="ExHelloworld">
         <div>
-          Name : <input onChange={this.handleInput} />
+          Name : <input onChange={this.handleChange} />
         </div>
         <p>
           Hello <span></span> !
@@ -26,7 +26,7 @@ export default Helloworld;
 
 // Exercice 1
 // Créer une propriété name sur le state avec une valeur par défaut
-// L'afficher dans la balise span
+// L'afficher dans la balise span et dans le champ
 // A la saisi dans le champ (methode handleInput)
 // modifier la valeur de name du state
 // (pour récupérer la valeur du champ utiliser event.currentTarget.value)

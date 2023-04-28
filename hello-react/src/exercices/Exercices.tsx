@@ -5,7 +5,7 @@ import Select from "./Select";
 
 function Exercices() {
   const names = ['Toto', 'Titi', 'Tata'];
-  const [name, setName] = useState('Toto');
+  const [name, setName] = useState('Titi');
 
   function handleSelected(val: string) {
 
@@ -14,8 +14,8 @@ function Exercices() {
   return (
     <div className="Exercices">
       <Helloworld />
-      <MultiStateButton />
-      <Select />
+      {/* <MultiStateButton items={names} selected={name} onSelected={handleSelected} /> */}
+      {/* <Select items={names} selected={name} onSelected={handleSelected} /> */}
     </div>
   );
 }
